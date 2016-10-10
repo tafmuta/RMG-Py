@@ -292,6 +292,23 @@ class TestMoleculeSymmetry(unittest.TestCase):
         """
         self.assertEqual(Molecule().fromSMILES('CC').calculateSymmetryNumber(), 18)
     
+    def testTotalSymmetryNumberIsotopicLabeledEthane(self):
+        """
+        Test the Molecule.calculateSymmetryNumber() on CC
+        """
+        
+        molecule = Molecule().fromAdjacencyList("""
+            1 C u0 p0 c0 i13 {2,S} {3,S} {4,S} {5,S}
+            2 C u0 p0 c0 {1,S} {6,S} {7,S} {8,S}
+            3 H u0 p0 c0 {1,S}
+            4 H u0 p0 c0 {1,S}
+            5 H u0 p0 c0 {1,S}
+            6 H u0 p0 c0 {2,S}
+            7 H u0 p0 c0 {2,S}
+            8 H u0 p0 c0 {2,S}
+            """)
+        self.assertEqual(molecule.calculateSymmetryNumber(), 9)
+    
     def testTotalSymmetryNumber1(self):
         """
         Test the Molecule.calculateSymmetryNumber() on C=C=[C]C(C)(C)[C]=C=C
