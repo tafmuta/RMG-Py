@@ -814,6 +814,17 @@ class TestGroup(unittest.TestCase):
         result3 = group3.makeSampleMolecule()
         self.assertTrue(result3.isIsomorphic(Molecule().fromSMILES('[NH4+]')))
 
+        #test creation of charged species when some single bonds present
+        adjlist4 = """
+1 *2 [N5s,N5d] u0 {2,S} {3,S}
+2 *3 R!H       u1 {1,S}
+3 *4 H         u0 {1,S}
+"""
+        group4 = Group().fromAdjacencyList(adjlist4)
+        result4 = group4.makeSampleMolecule()
+        self.assertTrue(result4.isIsomorphic(Molecule().fromSMILES('[NH3+][CH2]')))
+
+
     def testIsBenzeneExplicit(self):
         """
         Test the Group.isBenzeneExplicit method
