@@ -385,7 +385,10 @@ class RMG(util.Subject):
         util.makeOutputSubdirectory(self.outputDirectory, 'kinetics_database')
 
         # Specifies if details of kinetic database entries should be stored according to user
-        self.kineticsdatastore = kwargs['kineticsdatastore']
+        try:
+            self.kineticsdatastore = kwargs['kineticsdatastore']
+        except KeyError:
+            self.kineticsdatastore = False
 
         # Load databases
         self.loadDatabase()
