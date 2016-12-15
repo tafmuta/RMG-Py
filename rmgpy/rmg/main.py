@@ -688,9 +688,7 @@ class RMG(util.Subject):
             self.generateCanteraFiles(os.path.join(self.outputDirectory, 'chemkin', 'chem.inp'))
             self.generateCanteraFiles(os.path.join(self.outputDirectory, 'chemkin', 'chem_annotated.inp'))
         except EnvironmentError:
-            logging.info('Error: Could not generate Cantera files due to EnvironmentError. Check read\write privileges in output directory.')
-        except:
-            raise
+            logging.error('Could not generate Cantera files due to EnvironmentError. Check read\write privileges in output directory.')
                 
         # Write output file
         logging.info('')
