@@ -27,12 +27,9 @@ as followed. ::
 ``targets`` is a list of species labels whose concentration change should be minimized, and ``tolerance``
 is the percent change the user can tolerate at the end of simulation. In the above
 example, this would be 5%. 
+
 Higher values of ``tolerance`` lead to fewer final reactions with more error in
 output rates.
-
-To run a simulation, type ::
-
-    python $RMG/rmgpy/reduction/main.py input.py reduction_input.py chem_annotated.inp species_dictionary.txt
 
 A command line interface to the reduction driver script is contained in
 ``rmgpy/reduction/main.py``. It accepts four files: - ``input.py``:
@@ -42,6 +39,10 @@ variables and associated error tolerances to allow in the reduced model
 - ``chem_annotated.inp``: the reaction mechanism to reduce. -
 ``species_dictionary.txt``: the species dictionary associated with the
 reaction mechanism to reduce.
+
+To run a simulation, type ::
+
+    python $RMG/rmgpy/reduction/main.py input.py reduction_input.py chem_annotated.inp species_dictionary.txt
 
 where ``input.py`` is the RMG input file, ``reduction_input.py`` contains the two
 parameters above, ``chem_annotated.inp`` contains the reaction mechanism output
