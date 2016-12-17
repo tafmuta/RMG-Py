@@ -4,6 +4,9 @@
 Reaction Reduction in an RMG Job
 ***********************************
 
+This script is located at ``RMG-Py/rmgpy/reduction/main.py`` instead of the usual
+``RMG-Py/scripts`` folder.
+
 RMG's method of generating reactions between all species in a core mechanism and
 including them in the resulting model 
 is a robust process to obtain all chemistry. However, the huge number of cross reactions
